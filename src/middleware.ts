@@ -1,0 +1,15 @@
+import { NextResponse } from "next/server";
+
+export function middleware(request: Request) {
+  console.log("Middleware");
+  console.log(request.method);
+  console.log(request.url);
+
+  const origin = request.headers.get("origin");
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: "/api/:path*",
+};
